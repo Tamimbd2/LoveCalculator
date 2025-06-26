@@ -1,0 +1,127 @@
+/* Custom styles for the cute design */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    overflow: hidden; /* Hide scrollbars */
+}
+
+h1, .cute-font {
+     font-family: 'Pacifico', cursive;
+}
+
+/* Animated background hearts */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff7e9f;
+    opacity: 0;
+    animation: floatUp 8s infinite ease-in;
+}
+
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff7e9f;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* Main container with a soft, friendly look */
+.calculator-container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    color: #555;
+    z-index: 1;
+}
+
+/* Styling for input fields */
+.name-input {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 2px solid #fecaca;
+    color: #ef4444;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.name-input::placeholder {
+    color: #fca5a5;
+}
+
+.name-input:focus {
+    outline: none;
+    border-color: #f87171;
+    box-shadow: 0 0 10px rgba(248, 113, 113, 0.3);
+}
+
+/* Styling for the calculate button */
+.calculate-btn {
+    background: linear-gradient(90deg, #fb7185, #ff8c94);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(251, 113, 133, 0.4);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(251, 113, 133, 0.6);
+}
+
+/* Result display animations */
+#result-display {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.heart-path {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    animation: draw-heart 3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+@keyframes draw-heart {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+#percentage {
+    color: #ef4444;
+    font-family: 'Pacifico', cursive;
+}
